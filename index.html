@@ -1,170 +1,225 @@
 <!DOCTYPE html>
 <html lang="te">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — GP Data Collection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  body { font-family: -apple-system, Segoe UI, Roboto, "Noto Sans Telugu", sans-serif; max-width: 760px; margin: 0 auto; padding: 24px 20px 60px; line-height: 1.6; color: #20261F; background: #F6F4EC; }
-  h1 { color: #1B5E20; font-size: 26px; }
-  h2 { color: #1B5E20; font-size: 19px; margin-top: 32px; border-bottom: 2px solid #E08A1E; padding-bottom: 6px; }
-  .meta { color: #5B6158; font-size: 14px; margin-bottom: 24px; }
-  ul { padding-left: 22px; }
+  :root {
+    --green: #1b5e20;
+    --green-dark: #0d3d11;
+    --bg: #f6f4ec;
+    --surface: #ffffff;
+    --text: #20261f;
+    --muted: #5b6158;
+    --line: #dcd8c8;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Noto Sans Telugu", "Noto Sans", "Nirmala UI", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  header {
+    background: var(--green);
+    color: #fff;
+    padding: 28px 20px 24px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  header h1 { margin: 0 0 6px; font-size: 1.6rem; line-height: 1.3; }
+  header p { margin: 0; color: #dfeee0; font-size: 0.95rem; }
+  .switch {
+    display: flex;
+    gap: 8px;
+    margin: 18px 0 0;
+  }
+  .switch button {
+    font: inherit;
+    font-size: 0.95rem;
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: 1px solid #ffffff;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+  }
+  .switch button[aria-pressed="true"] { background: #fff; color: var(--green-dark); font-weight: 600; }
+  .switch button:focus-visible { outline: 3px solid #e08a1e; outline-offset: 2px; }
+  main { padding: 24px 20px 56px; }
+  section.lang { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 8px 24px 24px; margin-bottom: 28px; }
+  section.lang[hidden] { display: none; }
+  h2.doc { font-size: 1.3rem; color: var(--green-dark); margin: 22px 0 2px; }
+  .updated { color: var(--muted); font-size: 0.9rem; margin: 0 0 14px; }
+  .summary { background: #eef4ea; border-left: 4px solid var(--green); padding: 12px 16px; border-radius: 4px; margin: 14px 0 6px; }
+  h3 { font-size: 1.1rem; color: var(--green-dark); margin: 26px 0 6px; }
+  ul { padding-left: 22px; margin: 8px 0; }
   li { margin-bottom: 6px; }
-  .box { background: #FFFFFF; border: 1px solid #DCD8C8; border-radius: 10px; padding: 18px 20px; margin: 16px 0; }
-  .contact { background: #1B5E20; color: white; padding: 16px 20px; border-radius: 10px; margin-top: 30px; }
-  .contact a { color: #FFD97A; }
-  table { width: 100%; border-collapse: collapse; margin: 12px 0; }
-  th, td { border: 1px solid #DCD8C8; padding: 8px 10px; text-align: left; font-size: 14px; }
-  th { background: #1B5E20; color: white; }
+  .contact { margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--line); }
+  a { color: var(--green); }
+  @media (max-width: 480px) {
+    header h1 { font-size: 1.35rem; }
+    section.lang { padding: 4px 16px 20px; }
+  }
 </style>
 </head>
 <body>
 
-<h1>Privacy Policy — GP Data Collection</h1>
-<p class="meta">Last updated: 26/09/2026 &nbsp;•&nbsp; App: GP Data Collection (గ్రామ పంచాయతీ డేటా కలెక్షన్)</p>
+<header>
+  <div class="wrap">
+    <h1>Privacy Policy — GP Data Collection</h1>
+    <p>గోప్యతా విధానం • Last updated / చివరి అప్‌డేట్: 28/09/2026</p>
+    <div class="switch" role="group" aria-label="Language / భాష">
+      <button type="button" id="btn-te" aria-pressed="true">తెలుగు</button>
+      <button type="button" id="btn-en" aria-pressed="false">English</button>
+    </div>
+  </div>
+</header>
 
-<div class="box">
-<strong>ఒక్క ముక్కలో:</strong> ఈ App గ్రామ పంచాయతీ అధికారులు (State Admin, District/Mandal
-అధికారులు, Panchayat Secretary) కోసం మాత్రమే — ప్రభుత్వ సంక్షేమ పథకాల అర్హత నిర్ధారణ కోసం
-గృహ సర్వే డేటాను సేకరించడానికి ఉపయోగపడుతుంది. ఇది సాధారణ ప్రజల కోసం కాదు, ప్రకటనలు లేవు,
-మీ డేటాని ఎవరికీ అమ్మము లేదా షేర్ చేయము.
+<main>
+<div class="wrap">
+
+<!-- ======================= TELUGU ======================= -->
+<section class="lang" id="te" lang="te">
+  <h2 class="doc">గోప్యతా విధానం (Privacy Policy) — GP Data Collection</h2>
+  <p class="updated">చివరి అప్‌డేట్: 28/09/2026 • యాప్: GP Data Collection (గ్రామ పంచాయతీ డేటా కలెక్షన్)</p>
+
+  <div class="summary">
+    <strong>ఒక్క లైన్‌లో:</strong> ఈ యాప్ గ్రామ పంచాయతీ అధికారుల (State Admin, జిల్లా/మండల అధికారులు, పంచాయతీ కార్యదర్శి) కోసం మాత్రమే. ప్రభుత్వ సంక్షేమ పథకాల అర్హత నిర్ధారణకు గృహ సర్వే వివరాలను సేకరించడానికి, గ్రామ పంచాయతీ జమా ఖర్చుల ఖాతాలను (క్యాష్ బుక్) నిర్వహించడానికి ఉపయోగిస్తారు. ఇది సాధారణ ప్రజల కోసం కాదు, ఇందులో ప్రకటనలు లేవు, మేము మీ సమాచారాన్ని అమ్మం, ఎవరితోనూ పంచుకోం.
+  </div>
+
+  <h3>1. మేము సేకరించే సమాచారం</h3>
+  <p>అధికారం పొందిన పంచాయతీ అధికారులు, కుటుంబం అనుమతితో, ఈ వివరాలను నమోదు చేస్తారు:</p>
+  <ul>
+    <li><strong>ఇంటి వివరాలు:</strong> ఇంటి నంబర్, యజమాని పేరు, భవన వినియోగం/నిర్మాణం, పన్ను, విద్యుత్/నీరు/పారిశుధ్య కనెక్షన్లు, భూమి కొలతలు.</li>
+    <li><strong>కుటుంబ వివరాలు:</strong> రేషన్ కార్డ్, పట్టాదార్ పాస్ బుక్, జాబ్ కార్డ్, గ్యాస్ కనెక్షన్, మొబైల్ నంబర్, భూమి కలిగి ఉన్న వివరాలు.</li>
+    <li><strong>వ్యక్తిగత వివరాలు (ఒక్కో సభ్యునికి):</strong> పేరు, వయస్సు, లింగం, కులం, విద్య, వృత్తి, ఆధార్ నంబర్ (ఐచ్ఛికం), ఓటర్ ఐడి (ఐచ్ఛికం), పెన్షన్ స్థితి.</li>
+    <li><strong>అధికారిక లాగిన్ వివరాలు:</strong> మొబైల్ నంబర్ (username గా), OTP ధృవీకరణ. పాస్‌వర్డ్‌లు ఎక్కడా నిల్వ చేయం.</li>
+    <li><strong>గ్రామ పంచాయతీ క్యాష్ బుక్ వివరాలు:</strong> పంచాయతీ జమలు మరియు ఖర్చులు (తేదీ, రసీదు/వోచర్ నంబర్, మొత్తం, నిధి రకం, ఖర్చు రకం, చెల్లింపు వివరాలు, చెక్కు నంబర్), సర్పంచ్ / ఉప సర్పంచ్ పేర్లు, ఆ సంవత్సరంలో పనిచేసిన పంచాయతీ కార్యదర్శుల పేర్లు మరియు వారు పనిచేసిన తేదీలు. "చెల్లింపు వివరాలు" లో చెల్లింపు అందుకున్న వ్యక్తి లేదా సంస్థ పేరు ఉండవచ్చు.</li>
+  </ul>
+
+  <h3>2. మీ సమాచారం ఎక్కడ నిల్వ ఉంటుంది</h3>
+  <ul>
+    <li>గృహ సర్వే సమాచారం (కుటుంబ సభ్యుల పేర్లు, ఆధార్, భూమి వివరాలు మొదలైనవి) అధికారి ఫోన్‌లోనే SQLCipher (AES-256) encryption తో నిల్వ ఉంటుంది. ఇది మా సర్వర్‌లకు ఆటోమేటిక్‌గా అప్‌లోడ్ కాదు.</li>
+    <li><strong>క్యాష్ బుక్ సమాచారం</strong> (జమలు, ఖర్చులు, మొత్తాలు, వోచర్ వివరాలు, సర్పంచ్ మరియు కార్యదర్శుల పేర్లు) కూడా అధికారి ఫోన్‌లోనే, ప్రత్యేక encrypted డేటాబేస్‌లో (AES-256) నిల్వ ఉంటుంది. ఈ మొత్తాలు, వివరాలు మా సర్వర్‌లకు లేదా క్లౌడ్‌కు పంపబడవు.</li>
+    <li>మొబైల్ నంబర్/OTP ధృవీకరణ కోసం Google Firebase Authentication వాడతాం. ఇది కేవలం "ఈ మొబైల్ నంబర్ నిజమైనదే" అని నిర్ధారించడానికే.</li>
+    <li>అధికారుల మ్యాపింగ్ వివరాలు (ఏ అధికారి ఏ జిల్లా/మండలం/గ్రామ పంచాయతీకి బాధ్యులు, వారి మొబైల్ నంబర్‌తో సహా), డేటా ఎంట్రీ Freeze/Unfreeze స్థితి, మరియు <strong>క్యాష్ బుక్ నెలల Freeze/Unfreeze స్థితి</strong> (గ్రామ పంచాయతీ పేరు, ఆర్థిక సంవత్సరం, ఏ క్యాష్ బుక్, ఏ నెల, Freeze అయిందా లేదా, మార్చిన సమయం, మార్చిన అధికారి మొబైల్ నంబర్) Google Cloud Firestore (భారతదేశం, ముంబై డేటా సెంటర్) లో నిల్వ ఉంటాయి. దీనివల్ల ఒక అధికారి చేసిన మార్పు ఇతర అధికారుల ఫోన్‌లలో సరిగ్గా కనిపిస్తుంది. ఈ సమాచారంలో ప్రజల (లబ్ధిదారుల) వ్యక్తిగత వివరాలు గానీ, క్యాష్ బుక్ మొత్తాలు గానీ ఉండవు. ఇది కేవలం పరిపాలనా నిర్మాణం మరియు Freeze స్థితి మాత్రమే.</li>
+    <li>అధికారి తనంతట తానే Export/Share చేస్తేనే (PDF/Word/Excel రూపంలో) ఫైల్ ఫోన్ నుండి బయటకు వెళ్తుంది. క్యాష్ బుక్ PDF కూడా అంతే. ఇది అధికారి స్వంత నిర్ణయం, యాప్ ఎప్పుడూ ఆటోమేటిక్‌గా చేయదు.</li>
+  </ul>
+
+  <h3>3. సేకరణ ఉద్దేశం</h3>
+  <ul>
+    <li>ప్రభుత్వ సంక్షేమ పథకాల (పెన్షన్లు, గృహ నిర్మాణం, త్రాగునీరు, పారిశుధ్యం మొదలైనవి) నిజమైన లబ్ధిదారులను గుర్తించడం.</li>
+    <li>గ్రామ పంచాయతీ స్థాయిలో పరిపాలనా రికార్డులు నిర్వహించడం.</li>
+    <li>నకిలీ/అనర్హ లబ్ధిదారుల ఎంపికను నివారించడం.</li>
+    <li>గ్రామ పంచాయతీ నిధుల జమా ఖర్చుల ఖాతాలను (క్యాష్ బుక్) నిబంధనల ప్రకారం నిర్వహించి, నెలవారీ నివేదికలు తయారుచేయడం.</li>
+  </ul>
+  <p>ఈ సమాచారాన్ని రాజకీయ ప్రయోజనాలకు, ప్రకటనలకు, లేదా మూడవ పక్ష వాణిజ్య అవసరాలకు ఉపయోగించం.</p>
+
+  <h3>4. ఎవరు ఈ సమాచారాన్ని చూడగలరు</h3>
+  <p>యాప్‌లో నాలుగు స్థాయిల అధికారిక లాగిన్ ఉంది (State Admin → జిల్లా → మండలం → పంచాయతీ కార్యదర్శి). ప్రతి స్థాయి తన పరిధిలోని సమాచారాన్ని మాత్రమే చూడగలదు. Export/Download అనుమతి కూడా నిర్దిష్ట స్థాయిలకే పరిమితం. క్యాష్ బుక్ మొత్తాలు, ఎంట్రీలు ఆ గ్రామ పంచాయతీ కార్యదర్శి ఫోన్‌లోనే ఉంటాయి. మండల (MPDO) మరియు జిల్లా (DPO) అధికారులు క్యాష్ బుక్ నెలల Freeze స్థితిని మాత్రమే చూడగలరు మరియు Unfreeze చేయగలరు, మొత్తాలను చూడలేరు.</p>
+
+  <h3>5. మీ హక్కులు</h3>
+  <p>మీ కుటుంబ వివరాలు ఈ సర్వేలో నమోదు అయ్యాయని భావించి, వాటిని సరిచేయాలన్నా లేదా తొలగించాలన్నా, మీ గ్రామ పంచాయతీ కార్యదర్శిని సంప్రదించవచ్చు, లేదా కింద ఇచ్చిన సంప్రదింపు వివరాల ద్వారా మమ్మల్ని సంప్రదించవచ్చు.</p>
+
+  <h3>6. పిల్లలు</h3>
+  <p>ఈ యాప్ పిల్లల కోసం ఉద్దేశించినది కాదు, ఇది ప్రభుత్వ అధికారుల అంతర్గత వినియోగం కోసం మాత్రమే. అయితే గృహ సర్వేలో భాగంగా కుటుంబంలోని మైనర్ సభ్యుల ప్రాథమిక గణాంక వివరాలు (పేరు, వయస్సు, విద్య మొదలైనవి, తల్లిదండ్రుల అనుమతితో) పరిపాలనా అవసరాల కోసం నమోదు చేయవచ్చు.</p>
+
+  <h3>7. ఈ విధానంలో మార్పులు</h3>
+  <p>ఈ గోప్యతా విధానం అప్పుడప్పుడు అప్‌డేట్ కావచ్చు. మార్పులు ఇదే పేజీలో ప్రచురిస్తాం.</p>
+
+  <div class="contact">
+    <strong>సంప్రదింపు వివరాలు:</strong><br>
+    Burrola Murali<br>
+    Email: <a href="mailto:burrolamurali@gmail.com">burrolamurali@gmail.com</a><br>
+    Phone: <a href="tel:+919704068087">+91 9704068087</a>
+  </div>
+</section>
+
+<!-- ======================= ENGLISH ======================= -->
+<section class="lang" id="en" lang="en" hidden>
+  <h2 class="doc">Privacy Policy — GP Data Collection</h2>
+  <p class="updated">Last updated: 28/09/2026 • App: GP Data Collection</p>
+
+  <div class="summary">
+    <strong>In one line:</strong> This app is for Gram Panchayat officials (State Admin, District/Mandal officers, Panchayat Secretary) only. It is used to collect household survey data to help verify eligibility for government welfare schemes, and to maintain the Gram Panchayat's cash book (accounts of receipts and payments). It is not for the general public, carries no ads, and we do not sell or share your data.
+  </div>
+
+  <h3>1. Information We Collect</h3>
+  <p>Authorized Panchayat officials, with the household's consent, record the following details:</p>
+  <ul>
+    <li><strong>House details:</strong> House number, owner name, building usage/structure, tax, electricity/water/sanitation connections, land measurements.</li>
+    <li><strong>Family details:</strong> Ration card, Pattadar Pass Book, job card, gas connection, mobile number, land holding.</li>
+    <li><strong>Individual details (per member):</strong> Name, age, gender, caste, education, occupation, Aadhaar number (optional), Voter ID (optional), pension status.</li>
+    <li><strong>Official login details:</strong> Mobile number (as username), OTP verification. No passwords are ever stored.</li>
+    <li><strong>Gram Panchayat cash book details:</strong> Receipts and payments of the Panchayat (date, receipt/voucher number, amount, fund type, expense type, payment particulars, cheque number), names of the Sarpanch and Upa-Sarpanch, and the names and service dates of the Panchayat Secretaries who worked during the financial year. The payment particulars may include the name of the person or firm that was paid.</li>
+  </ul>
+
+  <h3>2. Where Your Data Is Stored</h3>
+  <ul>
+    <li>Household survey data (family members' names, Aadhaar, land details etc.) is stored locally on the officer's own phone with SQLCipher (AES-256) encryption. It is not automatically uploaded to our servers.</li>
+    <li><strong>Cash book data</strong> (receipts, payments, amounts, voucher details, Sarpanch and Secretary names) is also stored only on the officer's own phone, in a separate encrypted database (AES-256). These amounts and details are not sent to our servers or to the cloud.</li>
+    <li>Google Firebase Authentication is used only for mobile number/OTP login verification, solely to confirm the mobile number is genuine.</li>
+    <li>Officer mapping data (which officer is responsible for which District/Mandal/Gram Panchayat, including their mobile number), the data-entry Freeze/Unfreeze state, and the <strong>Freeze/Unfreeze state of each cash book month</strong> (Gram Panchayat name, financial year, which cash book, which month, whether it is frozen, the time of change and the mobile number of the officer who changed it) are stored in Google Cloud Firestore (in a Mumbai, India data center), so that a change made by one authorized official correctly appears on other authorized officials' devices. This data contains no personal information about members of the public (beneficiaries) and no cash book amounts. It is only the administrative structure and the freeze status.</li>
+    <li>A file only leaves the officer's phone if they themselves choose to Export/Share it (as PDF/Word/Excel). The same applies to the cash book PDF. This is their own decision; the app never does it automatically.</li>
+  </ul>
+
+  <h3>3. Purpose of Collection</h3>
+  <ul>
+    <li>Identifying genuine beneficiaries for government welfare schemes (pensions, housing, drinking water, sanitation, etc.).</li>
+    <li>Maintaining administrative records at the Gram Panchayat level.</li>
+    <li>Preventing selection of fake/ineligible beneficiaries.</li>
+    <li>Maintaining the Gram Panchayat's cash book of receipts and payments as required by rules, and preparing monthly statements.</li>
+  </ul>
+  <p>We do not use this data for political purposes, advertising, or any third-party commercial use.</p>
+
+  <h3>4. Who Can Access This Data</h3>
+  <p>The app has four tiers of official login (State Admin → District → Mandal → Panchayat Secretary), and each tier can see only the data within their own scope. The ability to Export/Download data is likewise restricted to specific tiers only. Cash book amounts and entries remain on the phone of that Gram Panchayat's Secretary. The Mandal (MPDO) and District (DPO) officers can only see and unfreeze the freeze status of cash book months; they cannot see the amounts.</p>
+
+  <h3>5. Your Rights</h3>
+  <p>If you believe your household's details were recorded in this survey and wish to have them corrected or deleted, you may contact your Gram Panchayat Secretary, or reach us using the contact details given below.</p>
+
+  <h3>6. Children</h3>
+  <p>This app is not directed at children. It is intended solely for internal use by government officials. However, as part of the household survey, basic statistical details of minor family members (name, age, education, etc., with their parents' consent) may be recorded for administrative purposes.</p>
+
+  <h3>7. Changes to This Policy</h3>
+  <p>This Privacy Policy may be updated from time to time. Changes will be published on this same page.</p>
+
+  <div class="contact">
+    <strong>Contact:</strong><br>
+    Burrola Murali<br>
+    Email: <a href="mailto:burrolamurali@gmail.com">burrolamurali@gmail.com</a><br>
+    Phone: <a href="tel:+919704068087">+91 9704068087</a>
+  </div>
+</section>
+
 </div>
+</main>
 
-<h2>1. మేము సేకరించే సమాచారం (Information We Collect)</h2>
-<p>అధీకృత పంచాయతీ అధికారులు, గ్రామంలోని కుటుంబాల సమ్మతితో, ఈ కింది వివరాలను నమోదు చేస్తారు:</p>
-<table>
-<tr><th>వర్గం</th><th>వివరాలు</th></tr>
-<tr><td>ఇంటి వివరాలు</td><td>ఇంటి నంబర్, యాజమాన్య రకం (సొంతం/అద్దె/లీజు), యజమాని పేరు, భవన వినియోగం/నిర్మాణం, పన్ను, విద్యుత్/నీటి/పారిశుధ్య కనెక్షన్లు, భూమి కొలతలు</td></tr>
-<tr><td>కుటుంబ వివరాలు</td><td>రేషన్ కార్డ్, పట్టాదార్ పాస్ బుక్, జాబ్ కార్డ్, గ్యాస్ కనెక్షన్, మొబైల్ నంబర్, భూమి హోల్డింగ్</td></tr>
-<tr><td>వ్యక్తిగత వివరాలు (ఒక్కో సభ్యుడికి)</td><td>పేరు, వయస్సు, లింగం, కులం, మతం, విద్య, వృత్తి, ఆధార్ నంబర్ (ఐచ్ఛికం), ఓటర్ ఐడి (ఐచ్ఛికం), పెన్షన్ స్థితి</td></tr>
-<tr><td>అధికారి లాగిన్ వివరాలు</td><td>మొబైల్ నంబర్ (username గా), OTP ద్వారా ధృవీకరణ — పాస్‌వర్డ్‌లు ఎక్కడా స్టోర్ చేయము</td></tr>
-</table>
-
-<h2>2. డేటా ఎక్కడ నిల్వ ఉంటుంది (Where Your Data Is Stored)</h2>
-<ul>
-<li><strong>గృహ సర్వే డేటా</strong> (కుటుంబ సభ్యుల పేర్లు, ఆధార్, భూమి వివరాలు వంటివి) — అధికారి
-ఫోన్‌లోనే, <strong>SQLCipher (AES-256) encryption</strong> తో స్థానికంగా (on-device) నిల్వ
-ఉంటుంది. ఇది మా సర్వర్‌కి ఆటోమేటిక్‌గా అప్‌లోడ్ కాదు.</li>
-<li><strong>మొబైల్ నంబర్ లాగిన్/OTP ధృవీకరణ</strong> కోసం <strong>Google Firebase
-Authentication</strong> వాడతాము — ఇది కేవలం "ఈ మొబైల్ నంబర్ నిజమైనదేనా" అని నిర్ధారించడానికే.</li>
-<li><strong>అధికారుల మ్యాపింగ్ వివరాలు (ఏ అధికారి ఏ జిల్లా/మండలం/గ్రామ పంచాయతీకి
-బాధ్యుడు — వారి మొబైల్ నంబర్‌తో సహా) మరియు డేటా-ఎంట్రీ Freeze/Unfreeze స్థితి</strong> —
-ఇవి <strong>Google Cloud Firestore</strong> లో (భారతదేశంలోని Mumbai డేటా సెంటర్‌లో) నిల్వ
-ఉంటాయి, తద్వారా ఒక అధికారి జోడించిన మ్యాపింగ్ మిగతా అన్ని అధీకృత అధికారుల ఫోన్‌లలోనూ
-సరిగ్గా కనిపిస్తుంది. ఈ డేటాలో సాధారణ ప్రజల (లబ్ధిదారుల) వ్యక్తిగత వివరాలు ఏవీ ఉండవు —
-ఇది కేవలం అధికారుల పరిపాలనా నిర్మాణం (ఎవరు ఏ ప్రాంతానికి బాధ్యులు) మాత్రమే.</li>
-<li>అధికారి తనంతట తానే Export/Share చేస్తేనే (PDF/Word/Excel రూపంలో) ఆ నిర్దిష్ట ఫైల్ వారి
-ఫోన్ నుండి బయటకు వెళ్తుంది — ఇది వారి స్వంత నిర్ణయం, App ఆటోమేటిక్‌గా చేయదు.</li>
-</ul>
-
-<h2>3. ఈ డేటాని ఎందుకు వాడతాము (Purpose of Collection)</h2>
-<ul>
-<li>ప్రభుత్వ సంక్షేమ పథకాలకు (పెన్షన్లు, గృహ నిర్మాణం, తాగునీరు, పారిశుధ్యం వంటివి) నిజమైన
-అర్హులను గుర్తించడం</li>
-<li>గ్రామ పంచాయతీ స్థాయిలో పరిపాలనా రికార్డులు నిర్వహించడం</li>
-<li>నకిలీ/తప్పుడు లబ్ధిదారుల ఎంపికను నివారించడం</li>
-</ul>
-<p><strong>ఈ డేటాని రాజకీయ ప్రయోజనాలకు, ప్రకటనలకు, లేదా ఏ మూడవ పక్షం వాణిజ్య వినియోగానికి
-వాడము.</strong></p>
-
-<h2>4. ఎవరు యాక్సెస్ చేయగలరు (Who Can Access This Data)</h2>
-<p>App లో నాలుగు స్థాయిల అధికారుల లాగిన్ ఉంది (State Admin → District → Mandal → Panchayat
-Secretary), ప్రతి ఒక్కరికీ వారి పరిధిలోని డేటా మాత్రమే కనిపిస్తుంది. డేటాను
-Export/Download చేసే అధికారం పరిమితంగా, నిర్దిష్ట స్థాయిల్లోనే ఉంటుంది.</p>
-
-<h2>5. మీ హక్కులు (Your Rights)</h2>
-<p>మీ కుటుంబ వివరాలు ఈ సర్వేలో నమోదయ్యాయని భావిస్తే, వాటిని సరిచేయడానికి లేదా తొలగించడానికి
-మీ గ్రామ పంచాయతీ కార్యదర్శిని లేదా కింద ఇచ్చిన సంప్రదింపు వివరాల ద్వారా మమ్మల్ని
-సంప్రదించవచ్చు.</p>
-
-<h2>6. పిల్లలు (Children)</h2>
-<p>ఈ App పిల్లల కోసం ఉద్దేశించినది కాదు — ఇది ప్రభుత్వ అధికారుల అంతర్గత వినియోగం కోసం
-మాత్రమే. అయితే గృహ సర్వేలో భాగంగా కుటుంబంలోని మైనర్ సభ్యుల ప్రాథమిక గణాంక వివరాలు (పేరు,
-వయస్సు, విద్య వంటివి — వారి తల్లిదండ్రుల సమ్మతితో) పరిపాలనా ప్రయోజనాల కోసం నమోదు
-కావొచ్చు.</p>
-
-<h2>7. మార్పులు (Changes to This Policy)</h2>
-<p>ఈ Privacy Policy ని అప్పుడప్పుడు అప్‌డేట్ చేయవచ్చు. మార్పులు ఈ పేజీలోనే ప్రచురిస్తాము.</p>
-
-<div class="contact">
-<strong>సంప్రదింపు వివరాలు (Contact):</strong><br>
-Burrola Murali<br>
-Email: burrolamurali@gmail.com<br>
-Phone: +91 9704068087
-</div>
-
-<h1 style="margin-top:56px;">Privacy Policy — GP Data Collection (English)</h1>
-<p class="meta">Last updated: 26/09/2026</p>
-
-<div class="box">
-<strong>In one line:</strong> This app is for Gram Panchayat officials (State Admin, District/Mandal
-officers, Panchayat Secretary) only — used to collect household survey data to help
-verify eligibility for government welfare schemes. It is not for the general public,
-carries no ads, and we do not sell or share your data.
-</div>
-
-<h2>1. Information We Collect</h2>
-<p>Authorized Panchayat officials, with the household's consent, record the following details:</p>
-<table>
-<tr><th>Category</th><th>Details</th></tr>
-<tr><td>House details</td><td>House number, ownership type (own/rent/lease), owner name, building usage/structure, tax, electricity/water/sanitation connections, land measurements</td></tr>
-<tr><td>Family details</td><td>Ration card, Pattadar Pass Book, job card, gas connection, mobile number, land holding</td></tr>
-<tr><td>Individual details (per member)</td><td>Name, age, gender, caste, religion, education, occupation, Aadhaar number (optional), Voter ID (optional), pension status</td></tr>
-<tr><td>Official login details</td><td>Mobile number (as username), OTP verification — no passwords are ever stored</td></tr>
-</table>
-
-<h2>2. Where Your Data Is Stored</h2>
-<ul>
-<li><strong>Household survey data</strong> (family members' names, Aadhaar, land details etc.) is stored
-locally on the officer's own phone with <strong>SQLCipher (AES-256) encryption</strong>. It is not
-automatically uploaded to our servers.</li>
-<li><strong>Google Firebase Authentication</strong> is used only for mobile number/OTP login
-verification — solely to confirm the mobile number is genuine.</li>
-<li><strong>Officer mapping data</strong> (which officer is responsible for which District/Mandal/Gram
-Panchayat, including their mobile number) and the <strong>data-entry Freeze/Unfreeze state</strong>
-are stored in <strong>Google Cloud Firestore</strong> (in a Mumbai, India data center), so that a
-mapping added by one authorized official correctly appears on every other authorized
-official's device. This data contains no personal information about members of the
-public (beneficiaries) — it is only the administrative structure of which officer is
-responsible for which area.</li>
-<li>A file only leaves the officer's phone if they themselves choose to Export/Share it
-(as PDF/Word/Excel) — this is their own decision, the app never does this automatically.</li>
-</ul>
-
-<h2>3. Purpose of Collection</h2>
-<ul>
-<li>Identifying genuine beneficiaries for government welfare schemes (pensions, housing, drinking water, sanitation, etc.)</li>
-<li>Maintaining administrative records at the Gram Panchayat level</li>
-<li>Preventing selection of fake/ineligible beneficiaries</li>
-</ul>
-<p><strong>We do not use this data for political purposes, advertising, or any third-party commercial use.</strong></p>
-
-<h2>4. Who Can Access This Data</h2>
-<p>The app has four tiers of official login (State Admin → District → Mandal → Panchayat
-Secretary), and each tier can see only the data within their own scope. The ability to
-Export/Download data is likewise restricted to specific tiers only.</p>
-
-<h2>5. Your Rights</h2>
-<p>If you believe your household's details were recorded in this survey and wish to have
-them corrected or deleted, you may contact your Gram Panchayat Secretary, or reach us
-using the contact details given below.</p>
-
-<h2>6. Children</h2>
-<p>This app is not directed at children — it is intended solely for internal use by
-government officials. However, as part of the household survey, basic statistical
-details of minor family members (name, age, education, etc. — with their parents'
-consent) may be recorded for administrative purposes.</p>
-
-<h2>7. Changes to This Policy</h2>
-<p>This Privacy Policy may be updated from time to time. Changes will be published on this same page.</p>
-
-<div class="contact">
-<strong>Contact:</strong><br>
-Burrola Murali<br>
-Email: burrolamurali@gmail.com<br>
-Phone: +91 9704068087
-</div>
-
+<script>
+  (function () {
+    var te = document.getElementById('te');
+    var en = document.getElementById('en');
+    var bte = document.getElementById('btn-te');
+    var ben = document.getElementById('btn-en');
+    function show(lang) {
+      var isTe = lang === 'te';
+      te.hidden = !isTe;
+      en.hidden = isTe;
+      bte.setAttribute('aria-pressed', isTe ? 'true' : 'false');
+      ben.setAttribute('aria-pressed', isTe ? 'false' : 'true');
+      document.documentElement.lang = lang;
+    }
+    bte.addEventListener('click', function () { show('te'); });
+    ben.addEventListener('click', function () { show('en'); });
+    if (location.hash === '#en') show('en');
+  })();
+</script>
 </body>
 </html>
